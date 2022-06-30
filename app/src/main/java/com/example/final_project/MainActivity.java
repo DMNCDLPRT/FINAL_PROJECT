@@ -1,6 +1,7 @@
 package com.example.final_project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,11 +24,31 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
     ProgressDialog dialog;
 
     Button business, entertainment, general, health, science, sports, technology;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        searchView = findViewById(R.id.search_view);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                dialog.setTitle("Fetching News Articles of " + query);
+                dialog.show();
+                RequestManager manager = new RequestManager(MainActivity.this);
+                manager.getNewsHeadlines(listener, "general", query);
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
 
         dialog = new ProgressDialog(this);
         dialog.setTitle("Fetching new articles. Please wait...");
@@ -61,13 +82,17 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
     private final OnFetchDataListener<NewsApiResponse> listener = new OnFetchDataListener<NewsApiResponse>() {
         @Override
         public void onFetchData(List<NewsHeadlines> list, String message) {
-            showNews(list);
-            dialog.dismiss();
+            if (list.isEmpty()){
+                Toast.makeText(MainActivity.this, "No data found.", Toast.LENGTH_SHORT).show();
+            } else {
+                showNews(list);
+                dialog.dismiss();
+            }
         }
 
         @Override
         public void onError(String message) {
-
+            Toast.makeText(MainActivity.this, "An Error Occurred. ", Toast.LENGTH_SHORT).show();
         }
     };
 
