@@ -2,4 +2,11 @@
     <string name="app_name">FINAL_PROJECT</string>
     <string name="api_key">6306ad54c3e34fd098c15bcd0b4f1c7e</string>
     <string name="image_view">Image view</string>
+    <string name="business">Business</string>
+    <string name="entertainment">entertainment</string>
+    <string name="general">general</string>
+    <string name="health">health</string>
+    <string name="science">science</string>
+    <string name="sports">sports</string>
+    <string name="technology">technology</string>
 </resources>

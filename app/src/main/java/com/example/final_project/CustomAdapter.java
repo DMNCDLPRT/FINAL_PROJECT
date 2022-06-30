@@ -2,6 +2,7 @@ package com.example.final_project;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder>  {
         if (headlines.get(position).getUrlToImage() != null) {
             Picasso.get().load(headlines.get(position).getUrlToImage()).into(holder.img_headline);
         }
+       /* holder.cardView.setOnClickListener(view -> listener.OnNewsClick(headlines.get(position)));*/
         holder.cardView.setOnClickListener(view -> listener.OnNewsClick(headlines.get(position)));
     }
 

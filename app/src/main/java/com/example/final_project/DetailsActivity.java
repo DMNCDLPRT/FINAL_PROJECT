@@ -21,7 +21,7 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        details_title_tv = findViewById(R.id.text_title);
+        details_title_tv = findViewById(R.id.details_title_tv);
         details_author_tv = findViewById(R.id.details_author_tv);
         details_time_tv = findViewById(R.id.details_time_tv);
         details_detail = findViewById(R.id.details_detail);
@@ -31,16 +31,17 @@ public class DetailsActivity extends AppCompatActivity {
 
         headlines = (NewsHeadlines) getIntent().getSerializableExtra("data");
 
-        String headlines = getIntent().getStringExtra("data");
+        /*String headlines = getIntent().getStringExtra("data");*/
 
-        Toast.makeText(this, headlines, Toast.LENGTH_SHORT).show();
+        /*Toast.makeText(this, headlines, Toast.LENGTH_SHORT).show();*/
         /*Toast.makeText(this, "qweqweqweqwe", Toast.LENGTH_SHORT).show();*/
-        /*details_title_tv.setText(headlines.getTitle());
+
+        details_title_tv.setText(headlines.getTitle());
         details_author_tv.setText(headlines.getAuthor());
         details_time_tv.setText(headlines.getPublishedAt());
         details_detail.setText(headlines.getDescription());
         details_content.setText(headlines.getContent());
-        Picasso.get().load(headlines.getUrlToImage()).into(details_image);*/
+        Picasso.get().load(headlines.getUrlToImage()).into(details_image);
 
 
     }
