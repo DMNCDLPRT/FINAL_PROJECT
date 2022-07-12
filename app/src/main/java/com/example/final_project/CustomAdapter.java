@@ -2,12 +2,12 @@ package com.example.final_project;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.final_project.Listener.SelectListener;
 import com.example.final_project.Model.NewsHeadlines;
 import com.squareup.picasso.Picasso;
 

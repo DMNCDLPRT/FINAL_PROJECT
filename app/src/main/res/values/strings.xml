@@ -9,4 +9,16 @@
     <string name="science">science</string>
     <string name="sports">sports</string>
     <string name="technology">technology</string>
+    <string name="register">Register</string>
+    <string name="new_here">New Here?</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="password">Password</string>
+    <string name="enter_valid_email_here">Enter Valid Email Here</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="logo">logo</string>
+    <string name="already_member">Already Member?</string>
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="full_name">Full Name</string>
+    <string name="logout">logout</string>
 </resources>

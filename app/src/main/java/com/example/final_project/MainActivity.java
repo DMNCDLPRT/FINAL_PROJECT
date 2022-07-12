@@ -12,12 +12,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.final_project.Listener.OnFetchDataListener;
+import com.example.final_project.Listener.SelectListener;
 import com.example.final_project.Model.NewsApiResponse;
 import com.example.final_project.Model.NewsHeadlines;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements SelectListener, View.OnClickListener{
+
+    FirebaseAuth mAuth;
 
     RecyclerView recyclerView;
     CustomAdapter adapter;
@@ -26,13 +32,24 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
     Button business, entertainment, general, health, science, sports, technology;
     SearchView searchView;
 
+    Button logout_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        searchView = findViewById(R.id.search_view);
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
+        logout_button = findViewById(R.id.logout_button);
+
+        logout_button.setOnClickListener(view -> {
+            mAuth.signOut();
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        });
+
+        searchView = findViewById(R.id.search_view);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -77,6 +94,17 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
 
         RequestManager manager = new RequestManager(this);
         manager.getNewsHeadlines(listener, "general", null);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser == null){
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        }
     }
 
     private final OnFetchDataListener<NewsApiResponse> listener = new OnFetchDataListener<NewsApiResponse>() {
