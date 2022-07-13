@@ -62,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if(task.isSuccessful()) {
                     User user = new User(name, email);
 
-                    FirebaseDatabase.getInstance().getReference("Users")
+                    FirebaseDatabase.getInstance("https://news-app-with-auth-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users")
                                     .child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
                                             .setValue(user).addOnCompleteListener(task1 -> {
                                                 if (task1.isSuccessful()) {
