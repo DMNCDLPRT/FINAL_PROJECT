@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.final_project.Listener.OnFetchDataListener;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
 
     Button business, entertainment, general, health, science, sports, technology;
     SearchView searchView;
+    TextView user_name_tv;
 
     Button logout_button;
 
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
+        user_name_tv = findViewById(R.id.user_name_tv);
 
         logout_button = findViewById(R.id.logout_button);
 
