@@ -27,7 +27,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         login_email_et = findViewById(R.id.login_email_et);
         login_password_et= findViewById(R.id.login_password_et);
         tv_register = findViewById(R.id.tv_register);
@@ -54,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                 if (task.isSuccessful()){
                     Toast.makeText(LoginActivity.this, "User Successfully logged in!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 } else{
                     Toast.makeText(LoginActivity.this, "Login Error: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 }
