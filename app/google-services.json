@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "834016035539",
+    "firebase_url": "https://news-app-with-auth-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "news-app-with-auth",
     "storage_bucket": "news-app-with-auth.appspot.com"
   },
