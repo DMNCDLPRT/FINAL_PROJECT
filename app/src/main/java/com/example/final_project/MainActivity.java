@@ -21,10 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements SelectListener, View.OnClickListener{
-
-    FirebaseAuth mAuth;
 
     RecyclerView recyclerView;
     CustomAdapter adapter;
@@ -35,6 +34,10 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
     TextView user_name_tv;
 
     Button logout_button;
+
+    String email;
+
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,13 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         user_name_tv = findViewById(R.id.user_name_tv);
 
         logout_button = findViewById(R.id.logout_button);
+
+        email = Objects.requireNonNull(mAuth.getCurrentUser()).getEmail();
+
+        user_name_tv = findViewById(R.id.user_name_tv);
+        user_name_tv.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, ProfileActivity.class).putExtra("email", email));
+        });
 
         logout_button.setOnClickListener(view -> {
             mAuth.signOut();
@@ -106,9 +116,13 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
 
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
         if(currentUser == null){
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        } else {
+            user_name_tv.setText(currentUser.getEmail());
         }
+
     }
 
     private final OnFetchDataListener<NewsApiResponse> listener = new OnFetchDataListener<NewsApiResponse>() {
