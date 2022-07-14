@@ -29,7 +29,7 @@ public class NewsApiResponse implements Serializable {
         return articles;
     }
 
-    public void setArticles(List<NewsHeadlines> articles) {
+    public void setArticles(List<NewsHeadlines> articles)    {
         this.articles = articles;
     }
 }

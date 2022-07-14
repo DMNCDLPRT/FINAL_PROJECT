@@ -9,6 +9,14 @@
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp">
 
+    <ImageButton
+        android:id="@+id/bookmark_btn"
+        android:background=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_bookmark_border_24"
+        android:contentDescription="@string/bookmark_icon" />
+
     <LinearLayout
         android:orientation="horizontal"
         android:weightSum="3"

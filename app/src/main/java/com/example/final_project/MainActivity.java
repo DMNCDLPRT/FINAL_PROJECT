@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
     TextView user_name_tv;
 
     Button logout_button;
+    ImageButton bookmark_btn;
 
     String email;
 
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         user_name_tv = findViewById(R.id.user_name_tv);
 
         logout_button = findViewById(R.id.logout_button);
+        bookmark_btn = findViewById(R.id.bookmark_btn);
 
         email = Objects.requireNonNull(mAuth.getCurrentUser()).getEmail();
 
@@ -57,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         user_name_tv.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, ProfileActivity.class).putExtra("email", email));
         });
+
+
 
         logout_button.setOnClickListener(view -> {
             mAuth.signOut();
