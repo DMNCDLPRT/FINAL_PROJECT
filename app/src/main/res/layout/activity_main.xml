@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
+    tools:viewBindingIgnore="true"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -17,12 +19,13 @@
         <TextView
             android:id="@+id/user_name_tv"
             android:layout_width="0dp"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:textSize="20sp"
             android:fontFamily="@font/nunitobold"
-            android:text="Dominic Del Puerto"/>
+            android:text=""/>
 
         <Button
             android:id="@+id/logout_button"
@@ -36,6 +39,21 @@
             app:backgroundTint="@null" />
 
     </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="8dp">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            app:defaultQueryHint="Search News..."
+            app:iconifiedByDefault="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.cardview.widget.CardView>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -131,21 +149,6 @@
                 app:backgroundTint="@null" />
         </LinearLayout>
     </HorizontalScrollView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_margin="14dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="8dp">
-
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_view"
-            app:defaultQueryHint="Search News..."
-            app:iconifiedByDefault="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_main"

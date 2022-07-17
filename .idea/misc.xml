@@ -3,16 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.163" />
         <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/drawable/button_radius.xml" value="0.162" />
+        <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.163" />
+        <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/drawable/ic_baseline_bookmark_border_24.xml" value="0.163" />
+        <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/drawable/ic_launcher_background.xml" value="0.163" />
+        <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/drawable/menu_icon.xml" value="0.163" />
         <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/drawable/outline_button.xml" value="0.162" />
         <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/drawable/red_button.xml" value="0.237" />
-        <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/layout/activity_details.xml" value="0.1" />
-        <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/layout/activity_details.xml" value="0.2" />
+        <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/layout/activity_login.xml" value="0.18532818532818532" />
         <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/layout/activity_profile.xml" value="0.2" />
         <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/layout/bookmark_list_items.xml" value="0.1171875" />
-        <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/layout/headlines_list_items.xml" value="0.4" />
+        <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/layout/headlines_list_items.xml" value="0.264" />
+        <entry key="..\:/Users/Dominic/AndroidStudioProjects/FINAL_PROJECT/app/src/main/res/menu/menu.xml" value="0.24895833333333334" />
       </map>
     </option>
   </component>

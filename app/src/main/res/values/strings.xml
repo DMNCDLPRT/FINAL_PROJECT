@@ -22,4 +22,10 @@
     <string name="full_name">Full Name</string>
     <string name="logout">logout</string>
     <string name="bookmark_icon">bookmark-icon</string>
+    <string name="add_to_bookmark">Add to Bookmark</string>
+    <string name="profile_picture">Profile picture</string>
+    <string name="news_app">News App</string>
+    <string name="news_headline">News Headline</string>
+    <string name="source">source</string>
+    <string name="star">star</string>
 </resources>
