@@ -203,10 +203,8 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
                 });
 
         binding.bookmarkTV.setOnClickListener(view -> {
-
             if (isInMyFavourites) {
                 removeToFavourite(MainActivity.this, source.getId());
-
             } else {
                 addToFavourite(MainActivity.this, source.getId());
             }
