@@ -1,13 +1,11 @@
 package com.example.final_project;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,17 +17,9 @@ import com.example.final_project.Listener.OnFetchDataListener;
 import com.example.final_project.Listener.SelectListener;
 import com.example.final_project.Model.NewsApiResponse;
 import com.example.final_project.Model.NewsHeadlines;
-import com.example.final_project.Model.Source;
-import com.example.final_project.databinding.HeadlinesListItemsBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -44,14 +34,9 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
     TextView user_name_tv;
 
     Button logout_button;
-    Source source;
-    NewsHeadlines newsHeadlines;
     String email;
 
     FirebaseAuth mAuth;
-    boolean isInMyFavourites = false;
-
-    HeadlinesListItemsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,64 +159,5 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
 
         RequestManager manager = new RequestManager(this);
         manager.getNewsHeadlines(listener, category, null);
-    }
-
-    public void checkFavorites(String id) {
-        binding = HeadlinesListItemsBinding.inflate(getLayoutInflater());
-        View v = binding.getRoot();
-        setContentView(v);
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
-        reference.child(Objects.requireNonNull(mAuth.getUid())).child("favourites").child(id)
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        isInMyFavourites = snapshot.exists();
-                        if (isInMyFavourites) {
-                            binding.bookmarkTV.setCompoundDrawablesRelativeWithIntrinsicBounds(0, R.drawable.ic_baseline_bookmark_24, 0, 0);
-                            binding.bookmarkTV.setText("Remove to my Bookmark");
-                        } else {
-                            binding.bookmarkTV.setCompoundDrawablesRelativeWithIntrinsicBounds(0, R.drawable.ic_baseline_bookmark_border_24, 0, 0);
-                            binding.bookmarkTV.setText("Add to my Bookmark");
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-        binding.bookmarkTV.setOnClickListener(view -> {
-            if (isInMyFavourites) {
-                removeToFavourite(MainActivity.this, source.getId());
-            } else {
-                addToFavourite(MainActivity.this, source.getId());
-            }
-        });
-    }
-
-    public void addToFavourite(Context context, String id) {
-        long timestamp = System.currentTimeMillis();
-
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("id", "" + source.getId());
-        hashMap.put("url", "" + newsHeadlines.getUrl());
-        hashMap.put("timestamp", ""+timestamp);
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
-        ref.child(Objects.requireNonNull(mAuth.getUid())).child("Favorites").child(id)
-                .setValue(hashMap)
-                .addOnCompleteListener(task -> Toast.makeText(context, "Added to your wishlist...", Toast.LENGTH_SHORT).show())
-                .addOnFailureListener(e -> Toast.makeText(context, "Failed to add due to " + e.getMessage(), Toast.LENGTH_SHORT).show());
-    }
-
-    public void removeToFavourite(Context context, String id) {
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
-        ref.child(Objects.requireNonNull(mAuth.getUid())).child("Favorites").child(id)
-                .removeValue()
-                .addOnCompleteListener(task -> Toast.makeText(context, "Removed from your wishlist...", Toast.LENGTH_SHORT).show())
-                .addOnFailureListener(e -> Toast.makeText(context, "Failed to remove due to " + e.getMessage(), Toast.LENGTH_SHORT).show());
     }
 }

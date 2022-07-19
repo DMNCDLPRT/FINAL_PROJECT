@@ -48,7 +48,6 @@ public class ProfileActivity extends AppCompatActivity {
                         editTextUserName.setText(ds.child("name").getValue(String.class));
                         editTextEmailAddress.setText(ds.child("email").getValue(String.class));
                     }
-
                 }
             }
 
