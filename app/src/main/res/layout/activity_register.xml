@@ -27,7 +27,7 @@
         android:id="@+id/register_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/nunitobold"
         android:text="@string/register"
         android:textColor="#0091EA"

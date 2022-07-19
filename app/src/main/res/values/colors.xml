@@ -9,6 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FB5555</color>
     <color name="bluesky">#2F80ED</color>
-    <color name="background">#272727</color>
+    <color name="background">#FFFFFF</color>
 
 </resources>
